@@ -1,74 +1,78 @@
 @echo off
-setlocal EnableDelayedExpansion
-chcp 65001 >nul
+setlocal EnableExtensions EnableDelayedExpansion
+
+:: --- NE KORISTI EMOJI, NE UTF-8 BOM ---
 title LabGuard Starter
 
-echo.
-echo ===========================================
-echo        🧬  LabGuard Startup Script
-echo ===========================================
-echo.
-
-REM --- Idi u folder skripte ---
+:: 1) Idi u folder skripte
 cd /d "%~dp0"
 
-REM --- Provjeri Node.js ---
-where node >nul 2>nul
-if errorlevel 1 (
-  echo ❌ Node.js nije instaliran.
-  echo 🔗 Preuzmi sa: https://nodejs.org/en/download
+:: 2) Provjeri da li postoje node i npm
+where node >nul 2>nul || (
+  echo [Greska] Node.js nije instaliran. Preuzmi sa: https://nodejs.org/en/download
   pause
-  exit /b
+  exit /b 1
+)
+where npm >nul 2>nul || (
+  echo [Greska] npm nije pronadjen. Instaliraj Node.js koji sadrzi npm.
+  pause
+  exit /b 1
 )
 
-REM --- Prikazi verzije ---
+:: 3) Prikazi verzije
 for /f "tokens=* usebackq" %%v in (`node -v`) do set NODE_VER=%%v
 for /f "tokens=* usebackq" %%v in (`npm -v`) do set NPM_VER=%%v
-echo ✅ Node.js %NODE_VER%
-echo ✅ npm %NPM_VER%
+echo Node.js: %NODE_VER%
+echo npm: %NPM_VER%
 echo.
 
-REM --- Provjeri package.json ---
+:: 4) Da li smo u root-u projekta?
 if not exist "package.json" (
-  echo ❌ Nije nadjen package.json u %cd%
-  echo Pokreni skriptu iz root foldera projekta.
+  echo [Greska] Nije nadjen package.json u: %cd%
+  echo Pokreni run.bat iz root foldera projekta.
   pause
-  exit /b
+  exit /b 1
 )
 
-REM --- Instaliraj node_modules ako ne postoje ---
+:: 5) Instaliraj dependencije ako nedostaju
 if not exist "node_modules" (
-  echo 📦 Instaliram dependencije...
+  echo Instaliram dependencije...
   if exist "package-lock.json" (
     call npm ci
   ) else (
     call npm install
   )
   if errorlevel 1 (
-    echo ❌ Instalacija nije uspjela.
+    echo [Greska] Instalacija nije uspjela.
     pause
-    exit /b
+    exit /b 1
   )
 ) else (
-  echo ✅ node_modules već postoji, preskačem instalaciju.
+  echo node_modules postoji - preskacem instalaciju.
 )
-echo.
-
-REM --- Pokreni Vite dev server ---
-set PORT=5173
-echo 🚀 Pokrećem Vite server na http://localhost:%PORT%
-start "" http://localhost:%PORT%
 
 echo.
-echo (Zatvori prozor da zaustaviš server)
-echo -------------------------------------------
-echo.
 
-REM Pokreni server unutar istog prozora da se ne zatvori odmah
-npm run dev -- --port %PORT%
+:: 6) Pokreni dev server (Vite / React)
+if "%PORT%"=="" set PORT=5173
+echo Pokrecem dev server na http://localhost:%PORT%
+start "" "http://localhost:%PORT%"
 
+:: Prvo probaj npm scriptu (preferirano)
+call npm run dev -- --port %PORT%
+if not errorlevel 1 goto :end
+
+:: Ako iz nekog razloga npm skripta ne postoji ili ne radi, fallback na npx vite
+echo npm run dev nije uspio, pokusavam: npx vite --port %PORT%
+call npx vite --port %PORT%
+if errorlevel 1 (
+  echo [Greska] Nije moguce pokrenuti dev server (ni npm run dev ni npx vite).
+  pause
+  exit /b 1
+)
+
+:end
 echo.
-echo -------------------------------------------
-echo Server je zaustavljen.
+echo Server zaustavljen.
 pause
 endlocal
