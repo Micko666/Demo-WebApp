@@ -80,13 +80,36 @@ All colors MUST be HSL.
     --ring: 210 65% 60%;
   }
 }
+/* LabGuard – lepršavi avatar i pop-in chat */
 
-@layer base {
-  * {
-    @apply border-border;
+.floating-avatar {
+  animation: float 3s ease-in-out infinite;
+  
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
   }
-
-  body {
-    @apply bg-background text-foreground;
+  50% {
+    transform: translateY(-6px);
   }
 }
+
+.chat-pop {
+  animation: chat-pop 0.25s ease-out;
+}
+
+@keyframes chat-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.90);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+

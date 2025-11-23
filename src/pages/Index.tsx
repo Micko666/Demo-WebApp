@@ -1,11 +1,12 @@
-import LabAnalyzer from "../components/LabAnalyzer";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Droplet, Heart, Apple, Leaf, Activity, ChevronDown } from "lucide-react";
+import { Droplet, Heart, Apple, Leaf, Activity } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { getCurrentSession } from "@/lib/db";
 
 const Index = () => {
-  const [showAnalysis, setShowAnalysis] = useState(false);
+  const navigate = useNavigate();
+  const session = getCurrentSession();
 
   const features = [
     {
@@ -30,6 +31,16 @@ const Index = () => {
     },
   ];
 
+  const handleStartAnalysis = () => {
+    if (!session) {
+      // Nije prijavljen → prvo login
+      navigate("/login");
+    } else {
+      // Prijavljen korisnik → pravo na stranicu za analizu PDF nalaza
+      navigate("/analyzer");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
@@ -44,8 +55,7 @@ const Index = () => {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-foreground leading-tight">
-              LabGuard<br />
-              
+              LabGuard
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -54,39 +64,18 @@ const Index = () => {
 
             <Button
               size="lg"
-              onClick={() => setShowAnalysis(!showAnalysis)}
+              onClick={handleStartAnalysis}
               className="text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
-              {showAnalysis ? "Sakrij analizu" : "Pokreni analizu"}
-              <ChevronDown className={`ml-2 h-5 w-5 transition-transform duration-300 ${showAnalysis ? "rotate-180" : ""}`} />
+              Pokreni analizu
             </Button>
+
+            <p className="mt-4 text-xs text-muted-foreground max-w-md mx-auto">
+              Za pokretanje analize potrebno je da se prijaviš, kako bi tvoji nalazi bili sačuvani i povezani sa nalogom.
+            </p>
           </div>
         </div>
       </section>
-
-      {/* Analiza */}
-      {showAnalysis && (
-        <section className="animate-slide-down">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <Card className="max-w-6xl mx-auto border-2 border-primary/20 shadow-2xl">
-              <CardContent className="p-8">
-                <div className="text-center mb-6">
-                  <h2 className="text-2xl font-bold text-foreground mb-2">
-                    Analiza laboratorijskih nalaza
-                  </h2>
-                  <p className="text-muted-foreground">
-                    Učitaj jedan ili više PDF dokumenata i preuzmi rezultate kao CSV.
-                  </p>
-                </div>
-
-                <div className="max-w-6xl mx-auto">
-                  <LabAnalyzer />
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-      )}
 
       {/* Kako funkcioniše */}
       <section className="py-20">
@@ -97,7 +86,8 @@ const Index = () => {
                 Kako funkcioniše
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Podaci iz tvojih nalaza pretvaraju se u pregledne tabele i uvid u trendove.
+                Podaci iz tvojih nalaza pretvaraju se u pregledne tabele i uvid u trendove. LabGuard ti pomaže da se
+                pripremiš za razgovor sa ljekarom, bez zamjene za stručni savjet.
               </p>
             </div>
 
