@@ -53,9 +53,9 @@ if "%PYTHON%"=="" (
   exit /b 1
 )
 
-if exist "AI - Bot\requirements.txt" (
+if exist "AI - Bot\\requirements.txt" (
   echo Instaliram backend dependencije...
-  %PYTHON% -m pip install -r "AI - Bot\requirements.txt"
+  %PYTHON% -m pip install -r "AI - Bot\\requirements.txt"
 )
 
 echo.
