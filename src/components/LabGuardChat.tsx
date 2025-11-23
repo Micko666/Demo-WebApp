@@ -10,28 +10,28 @@ type ChatMessage = {
   timestamp: string;
 };
 
-interface LabGuardChatProps {
+interface Props {
   reports: LabReport[];
   onClose?: () => void;
 }
 
-const LabGuardChat: React.FC<LabGuardChatProps> = ({ reports, onClose }) => {
+const LabGuardChat: React.FC<Props> = ({ reports, onClose }) => {
   const [question, setQuestion] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const msgRef = useRef<HTMLDivElement | null>(null);
   const nextId = useRef(1);
-  const messagesRef = useRef<HTMLDivElement | null>(null);
 
-  // auto-scroll na dno
+  // auto-scroll
   useEffect(() => {
-    if (messagesRef.current) {
-      messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+    if (msgRef.current) {
+      msgRef.current.scrollTop = msgRef.current.scrollHeight;
     }
   }, [messages, loading]);
 
-  const handleAsk = async () => {
+  const send = async () => {
     const q = question.trim();
     if (!q || loading) return;
 
@@ -49,134 +49,184 @@ const LabGuardChat: React.FC<LabGuardChatProps> = ({ reports, onClose }) => {
     setQuestion("");
 
     try {
-      const resp = await askLabGuard(q, reports || []);
-
-      const assistantMsg: ChatMessage = {
+      const response = await askLabGuard(q, reports);
+      const botMsg: ChatMessage = {
         id: nextId.current++,
         role: "assistant",
-        text: resp.answer,
-        timestamp: resp.timestamp,
+        text: response.answer,
+        timestamp: response.timestamp,
       };
-
-      setMessages((prev) => [...prev, assistantMsg]);
-    } catch (err) {
-      console.error(err);
-      setError(
-        "Došlo je do greške pri komunikaciji sa LabGuard AI asistentom. Pokušaj ponovo."
-      );
+      setMessages((prev) => [...prev, botMsg]);
+    } catch (e) {
+      setError("Došlo je do greške. Pokušaj ponovo.");
     } finally {
       setLoading(false);
     }
   };
 
-  const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
+  const handleKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      handleAsk();
+      send();
     }
   };
 
-  const handleHeadClick = () => {
-    if (onClose) onClose();
-  };
-
   return (
-    // W-FULL -> širi se koliko i parent (max-w-6xl iz Dashboarda)
-    <div className="relative w-full rounded-3xl border px-6 py-8 chat-pop 
-    bg-gradient-to-b from-gray-50 via-white to-gray-50">
-
-      {/* Glava avatara na sredini gore */}
+    <div
+      className="
+        relative w-full rounded-3xl 
+        border border-gray-400/40
+        bg-white/50
+        backdrop-blur-xl
+        px-6 py-8 
+        chat-pop 
+        shadow-xl shadow-black/10
+      "
+    >
+      {/* CLOSE HEAD */}
       <button
-        type="button"
-        onClick={handleHeadClick}
-        className="absolute -top-10 left-1/2 -translate-x-1/2 rounded-full border bg-background shadow-md p-1 hover:shadow-lg transition-transform hover:-translate-y-0.5"
+        onClick={() => onClose && onClose()}
+        className="
+          absolute -top-10 left-1/2 -translate-x-1/2 
+          rounded-full border border-gray-300/60 
+          bg-white/40 
+          backdrop-blur-xl 
+          shadow-lg shadow-black/10 
+          p-1 
+          hover:scale-105 
+          hover:bg-white/60 
+          transition
+        "
         title="Zatvori chat"
       >
         <img
           src="/Avatar-head.png"
-          alt="LabGuard avatar"
-          className="w-16 h-16 rounded-full select-none pointer-events-none"
+          alt="LabGuard"
+          className="w-16 h-16 rounded-full"
         />
       </button>
 
-      {/* Poruke */}
+      {/* HISTORY */}
       <div
-        ref={messagesRef}
-        className="mt-2 mb-4 max-h-80 overflow-y-auto space-y-3 text-sm"
+        ref={msgRef}
+        className="
+          max-h-[340px]
+          overflow-y-auto 
+          pr-2 
+          space-y-4 
+          scrollbar-hide
+        "
       >
         {messages.length === 0 && !loading && (
-          <div className="text-xs text-muted-foreground">
-            Primjer pitanja:
+          <div className="text-xs text-gray-700">
+            Počni razgovor sa LabGuardom:
             <ul className="list-disc ml-4 mt-1 space-y-1">
-              <li>Šta znači povišen LDL u mom nalazu?</li>
-              <li>Objasni mi ukratko moj poslednji nalaz.</li>
+              <li>Šta znači povišen LDL?</li>
+              <li>Za šta služi gvožđe?</li>
+              <li>Objasni moj nalaz ukratko.</li>
             </ul>
           </div>
         )}
 
-        {messages.map((msg) =>
-          msg.role === "assistant" ? (
-            // LABGUARD poruka – lijevo
-            <div key={msg.id} className="flex justify-start">
-              <div className="flex items-start gap-3 max-w-[80%]">
-                <img
-                  src="/Avatar-head.png"
-                  alt="LabGuard avatar"
-                  className="w-10 h-10 rounded-full border"
-                />
-                <div className="px-4 py-2 rounded-2xl border bg-background whitespace-pre-wrap">
-                  {msg.text}
-                </div>
+        {messages.map((m) =>
+          m.role === "assistant" ? (
+            // BOT – svijetli gel balon
+            <div key={m.id} className="flex items-start gap-3 max-w-[90%]">
+              <img
+                src="/Avatar-head.png"
+                className="
+                  w-10 h-10 rounded-full 
+                  border border-gray-300/50 
+                  bg-white/60 
+                  backdrop-blur-md
+                "
+              />
+              <div
+                className="
+                   px-4 py-3 
+    rounded-2xl 
+    border border-gray-300/70 
+    bg-gray-200/60
+    backdrop-blur-md 
+    shadow-sm shadow-black/10
+    text-sm text-gray-800
+    whitespace-pre-wrap
+                "
+              >
+                {m.text}
               </div>
             </div>
           ) : (
-            // USER poruka – desno
-            <div key={msg.id} className="flex justify-end">
-              <div className="flex items-start justify-end max-w-[80%]">
-                <div className="relative">
-                  <div className="px-4 py-2 rounded-2xl border bg-blue-500 text-white whitespace-pre-wrap pr-8">
-                    {msg.text}
-                  </div>
-                  <div className="absolute -right-4 -top-3 w-8 h-8 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-semibold shadow-md">
-                    M
-                  </div>
-                </div>
+            // USER – tamniji gel balon
+            <div key={m.id} className="flex justify-end w-full">
+              <div
+                className="
+                  max-w-[80%] 
+                  px-4 py-3 
+                  rounded-2xl 
+                  border border-gray-500/40
+                  bg-gray-700/60 
+                  backdrop-blur-md 
+                  shadow-md shadow-black/20
+                  text-sm text-white 
+                  whitespace-pre-wrap
+                "
+              >
+                {m.text}
               </div>
             </div>
           )
         )}
 
         {loading && (
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <span className="w-2 h-2 rounded-full bg-muted animate-pulse" />
-            LabGuard piše...
-          </div>
+          <div className="text-xs text-gray-600">LabGuard piše…</div>
         )}
       </div>
 
-      {/* Input + dugme */}
-      <div className="flex items-stretch gap-2">
+      {/* INPUT AREA */}
+      <div className="flex mt-4 gap-2">
         <input
-          type="text"
-          className="flex-1 rounded-2xl border px-3 py-2 text-sm outline-none focus-visible:ring-1 focus-visible:ring-primary"
+          className="
+            flex-1 
+            rounded-2xl 
+            border border-gray-400/40 
+            bg-white/50 
+            backdrop-blur-md 
+            px-3 py-2 
+            text-sm text-gray-900 
+            placeholder-gray-600
+            outline-none 
+            focus:ring-1 focus:ring-gray-400
+          "
           placeholder="Upiši pitanje o nalazu..."
-          value={question}
           onChange={(e) => setQuestion(e.target.value)}
-          onKeyDown={handleKeyDown}
+          onKeyDown={handleKey}
+          value={question}
           disabled={loading}
         />
+
         <button
-          type="button"
-          onClick={handleAsk}
+          onClick={send}
           disabled={loading || !question.trim()}
-          className="rounded-2xl border px-4 py-2 text-sm font-semibold shadow-sm bg-white hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed"
+          className="
+            px-4 py-2 
+            rounded-2xl
+            backdrop-blur-xl
+            bg-white/50 
+            border border-gray-500/40
+            shadow-md shadow-black/10
+            text-sm font-medium text-gray-900
+            hover:bg-white/60 hover:border-gray-600
+            disabled:opacity-40 disabled:cursor-not-allowed
+            transition
+          "
         >
           Pošalji
         </button>
       </div>
 
       {error && (
-        <p className="mt-3 text-[11px] text-destructive">
+        <p className="mt-2 text-xs text-red-500">
           {error}
         </p>
       )}

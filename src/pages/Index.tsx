@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Droplet, Heart, Apple, Leaf, Activity } from "lucide-react";
+import { Droplet, Heart, Apple, Leaf } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { getCurrentSession } from "@/lib/db";
 
@@ -12,72 +12,119 @@ const Index = () => {
     {
       icon: Droplet,
       title: "Analiza krvi",
-      description: "Automatsko prepoznavanje analita, jedinica i referentnih opsega",
+      description:
+        "Automatsko prepoznavanje analita, jedinica i referentnih opsega.",
     },
     {
       icon: Heart,
       title: "Zdravstveni uvidi",
-      description: "Razumljiv prikaz šta znače vaši biomarkeri",
+      description: "Razumljiv prikaz šta znače vaši biomarkeri.",
     },
     {
       icon: Apple,
       title: "Nutricione smjernice",
-      description: "Neutralne preporuke o ishrani usklađene sa nalazima",
+      description: "Neutralne preporuke o ishrani usklađene sa nalazima.",
     },
     {
       icon: Leaf,
       title: "Prirodna rješenja",
-      description: "Ideje za navike i aktivnosti zasnovane na dokazima",
+      description: "Ideje za navike i aktivnosti zasnovane na dokazima.",
     },
   ];
 
   const handleStartAnalysis = () => {
-    if (!session) {
-      // Nije prijavljen → prvo login
-      navigate("/login");
-    } else {
-      // Prijavljen korisnik → pravo na stranicu za analizu PDF nalaza
-      navigate("/analiza");
-    }
+    if (!session) navigate("/login");
+    else navigate("/analiza");
   };
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
-        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <div className="flex justify-center gap-3 mb-6">
-              <Activity className="h-12 w-12 text-primary animate-pulse-soft" />
-              <Apple className="h-12 w-12 text-secondary animate-pulse-soft" style={{ animationDelay: "0.2s" }} />
-              <Heart className="h-12 w-12 text-accent animate-pulse-soft" style={{ animationDelay: "0.4s" }} />
-            </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-foreground leading-tight">
+      {/* HERO SECTION */}
+      <section className="relative overflow-hidden py-24 sm:py-40">
+        {/* Gel-glass gradient */}
+        <div
+          className="
+            absolute inset-0 
+            bg-gradient-to-br 
+            from-gray-200/30 
+            via-white/40 
+            to-gray-300/30
+            backdrop-blur-xl
+          "
+        />
+
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center animate-fade-in">
+
+            {/* HERO ICON */}
+            <div className="flex justify-center mb-10">
+  <img
+    src="/Defense.png"
+    alt="LabGuard"
+    className="
+      w-38 h-32
+      object-contain 
+      animate-float-soft
+      drop-shadow-[0_6px_20px_rgba(180,180,180,0.35)]
+
+
+    "
+  />
+</div>
+
+
+
+            {/* MAIN TITLE */}
+            <h1
+              className="
+                text-4xl sm:text-5xl lg:text-6xl 
+                font-bold 
+                text-gray-900 
+                tracking-tight
+                drop-shadow-sm
+              "
+            >
               LabGuard
             </h1>
 
-            <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Pretvori PDF laboratorijske nalaze u jasne uvide i CSV. Privatno, lokalno, pod tvojom kontrolom.
+            {/* SUBTITLE */}
+            <p
+              className="
+                mt-6 
+                text-lg sm:text-xl 
+                max-w-2xl mx-auto 
+                text-gray-700 
+                leading-relaxed
+              "
+            >
+              Pretvori PDF laboratorijske nalaze u jasne uvide i CSV. Privatno,
+              lokalno, pod tvojom kontrolom, uz AI objašnjenje svakog parametra.
             </p>
 
+            {/* CTA BUTTON */}
             <Button
               size="lg"
               onClick={handleStartAnalysis}
-              className="text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="
+                text-lg px-8 py-6 rounded-full 
+                shadow-lg hover:shadow-xl 
+                transition-all duration-300 
+                hover:scale-105 
+                mt-10
+              "
             >
               Pokreni analizu
             </Button>
 
             <p className="mt-4 text-xs text-muted-foreground max-w-md mx-auto">
-              Za pokretanje analize potrebno je da se prijaviš, kako bi tvoji nalazi bili sačuvani i povezani sa nalogom.
+              Za pokretanje analize potrebno je da se prijaviš.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Kako funkcioniše */}
+      {/* FEATURES SECTION */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
@@ -86,17 +133,26 @@ const Index = () => {
                 Kako funkcioniše
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Podaci iz tvojih nalaza pretvaraju se u pregledne tabele i uvid u trendove. LabGuard ti pomaže da se
-                pripremiš za razgovor sa ljekarom, bez zamjene za stručni savjet.
+                LabGuard automatski prepoznaje analite iz tvojih nalaza i pretvara ih u jasne tabele,
+                trendove i neutralne uvide, pripremajući te za razgovor sa ljekarom.
               </p>
             </div>
 
+            {/* FEATURE CARDS */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {features.map((feature, index) => (
                 <Card
                   key={feature.title}
-                  className="border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className="
+                    border-transparent 
+                    bg-white/40 backdrop-blur-xl 
+                    shadow-lg shadow-black/10 
+                    rounded-3xl 
+                    transition-all duration-300 
+                    hover:-translate-y-1 
+                    hover:shadow-xl
+                  "
+                  style={{ animationDelay: `${index * 120}ms` }}
                 >
                   <CardContent className="p-6 text-center">
                     <feature.icon className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -113,6 +169,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
     </div>
   );
 };

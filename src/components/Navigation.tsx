@@ -29,78 +29,122 @@ const Navigation = () => {
 
 
   return (
-    <nav className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="flex items-center gap-1">
-              <Droplet className="h-6 w-6 text-primary transition-transform group-hover:scale-110" />
-              <Heart className="h-5 w-5 text-secondary transition-transform group-hover:scale-110" />
-            </div>
-            <span className="font-semibold text-lg text-foreground">
-              LabGuard
-            </span>
-          </Link>
+  <nav className="sticky top-0 z-50 border-b border-transparent bg-gradient-to-b from-white/70 to-white/40 backdrop-blur-xl">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex items-center justify-between h-16">
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2 group">
+          <img
+            src="/Avatar-head.png"
+            alt="LabGuard mini avatar"
+            className="
+              h-7 w-7
+              rounded-full
+              object-contain
+              opacity-90
+              drop-shadow-[0_3px_6px_rgba(0,0,0,0.18)]
+              transition-transform
+              group-hover:scale-110
+            "
+          />
+          <span className="font-semibold text-lg text-slate-900">
+            LabGuard
+          </span>
+        </Link>
 
-          {/* Linkovi */}
-          <div className="flex items-center gap-6">
-            {navItems
-  .filter(item => session || item.path !== "/moji-nalazi")
-  .map((item) => (
+       {/* SREDINA – gel bubble nav */}
+<div
+  className="
+    hidden md:flex items-center gap-1
+    px-2 py-1
+    glass-nav-shell
+  "
+>
+  {navItems
+    .filter((item) => session || item.path !== "/moji-nalazi")
+    .map((item) => {
+      const active = location.pathname === item.path;
+      return (
+        <Link
+          key={item.path}
+          to={item.path}
+          className={`
+            glass-nav-pill
+            relative px-4 py-1.5 text-sm font-medium
+            ${
+              active
+                ? "glass-nav-pill--active text-slate-900"
+                : "text-slate-600 hover:text-slate-900 hover:bg-white/60"
+            }
+          `}
+        >
+          {item.name}
+        </Link>
+      );
+    })}
+</div>
+
+        
+
+        {/* Desno – auth info i dugme */}
+        <div className="flex items-center gap-3">
+          {!session ? (
+            <>
               <Link
-                key={item.path}
-                to={item.path}
-                className={`text-sm font-medium transition-colors relative ${
-                  location.pathname === item.path
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
+                to="/login"
+                className="
+                  hidden sm:inline-flex 
+                  text-sm font-medium 
+                  text-slate-600 hover:text-slate-900
+                "
               >
-                {item.name}
-                {location.pathname === item.path && (
-                  <span className="absolute -bottom-[17px] left-0 right-0 h-0.5 bg-primary" />
-                )}
+                Prijava
               </Link>
-            ))}
-
-            {/* Auth kontrole */}
-            {!session ? (
-              <>
-                <Link
-                  to="/login"
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground"
-                >
-                  Prijava
-                </Link>
-                <Link
-                  to="/signup"
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground"
-                >
-                  Registracija
-                </Link>
-              </>
-            ) : (
-              <>
-                <span className="text-sm text-muted-foreground">
-                  {session.email}
-                </span>
-                <button
-                  onClick={() => {
-                    signOut();
-                    nav("/");
-                  }}
-                  className="text-sm border rounded px-2 py-1 hover:bg-muted transition"
-                >
-                  Odjava
-                </button>
-              </>
-            )}
-          </div>
+              <Link
+                to="/signup"
+                className="
+                  text-sm font-medium 
+                  px-3 py-1.5 rounded-full
+                  bg-white/80
+                  border border-white/70
+                  shadow-[0_6px_16px_rgba(15,23,42,0.12)]
+                  hover:bg-white
+                  hover:shadow-[0_10px_26px_rgba(15,23,42,0.16)]
+                  transition-all
+                "
+              >
+                Registracija
+              </Link>
+            </>
+          ) : (
+            <>
+              <span className="hidden sm:inline text-sm text-slate-600">
+                {session.email}
+              </span>
+              <button
+                onClick={() => {
+                  signOut();
+                  nav("/");
+                }}
+                className="
+                  text-sm px-3 py-1.5 rounded-full
+                  bg-slate-900/90
+                  text-white
+                  shadow-[0_8px_20px_rgba(15,23,42,0.4)]
+                  hover:bg-slate-900
+                  transition-all
+                "
+              >
+                Odjava
+              </button>
+            </>
+          )}
         </div>
       </div>
-    </nav>
-  );
+    </div>
+  </nav>
+);
+
 };
 
 export default Navigation;

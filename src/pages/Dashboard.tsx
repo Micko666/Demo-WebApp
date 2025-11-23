@@ -124,7 +124,23 @@ export default function Dashboard() {
           </p>
         </div>
         <button
-          className="text-sm border rounded px-3 py-2 hover:bg-muted"
+          className="text-sm font-medium
+  rounded-2xl 
+  px-4 py-2
+  
+  bg-[#FF0000]/20
+  backdrop-blur-xl
+
+  text-[#B00000]
+
+  border border-[#FF0000]/30
+  shadow-xl shadow-[#FF0000]/20
+
+  hover:bg-[#FF0000]/30
+  hover:border-[#FF0000]/50
+  hover:shadow-[#FF0000]/60
+
+  transition"
           onClick={onDeleteAll}
         >
           Obriši sve podatke
@@ -136,55 +152,79 @@ export default function Dashboard() {
         {/* LIJEVA KOLONA – tabela + detalji */}
         <div className="flex-1 space-y-6">
           {/* Lista izvještaja */}
-          <div className="overflow-x-auto rounded border bg-card">
-            <table className="min-w-full text-sm">
-              <thead className="bg-muted/40">
-                <tr>
-                  <th className="text-left px-3 py-2 font-semibold">Datum</th>
-                  <th className="text-left px-3 py-2 font-semibold">Fajlovi</th>
-                  <th className="text-left px-3 py-2 font-semibold">
-                    # Parametara
-                  </th>
-                  <th className="text-left px-3 py-2 font-semibold">Akcije</th>
-                </tr>
-              </thead>
-              <tbody>
-                {reports.map((r) => (
-                  <tr key={r.id} className="border-t">
-                    <td className="px-3 py-2">{r.date}</td>
-                    <td className="px-3 py-2">
-                      {r.sourceFiles?.join(", ") || "—"}
-                    </td>
-                    <td className="px-3 py-2">{r.rows?.length ?? 0}</td>
-                    <td className="px-3 py-2 flex gap-2">
-                      <button
-                        className="text-sm border rounded px-2 py-1 hover:bg-muted transition"
-                        onClick={() => setSelected(r)}
-                      >
-                        Pregled
-                      </button>
-                      <button
-                        className="text-sm border rounded px-2 py-1 hover:bg-red-50 text-red-600 border-red-300 transition"
-                        onClick={() => onDeleteReport(r)}
-                      >
-                        Obriši izvještaj
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-                {reports.length === 0 && (
-                  <tr>
-                    <td
-                      className="px-3 py-4 text-muted-foreground"
-                      colSpan={4}
-                    >
-                      Još nema sačuvanih nalaza. Učitaj PDF u Analizi.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
+          <div
+  className="
+    overflow-x-auto 
+    rounded-3xl 
+    border border-gray-400/40 
+    bg-white/50 
+    backdrop-blur-xl 
+    shadow-md
+  "
+>
+  <table className="min-w-full text-sm">
+    <thead className="bg-white/40 backdrop-blur-md">
+      <tr>
+        <th className="text-left px-3 py-2 font-semibold">Datum</th>
+        <th className="text-left px-3 py-2 font-semibold">Fajlovi</th>
+        <th className="text-left px-3 py-2 font-semibold"># Parametara</th>
+        <th className="text-left px-3 py-2 font-semibold">Akcije</th>
+      </tr>
+    </thead>
+    <tbody>
+      {reports.map((r) => (
+        <tr key={r.id} className="border-t border-gray-300/40">
+          <td className="px-3 py-2 text-gray-900">{r.date}</td>
+          <td className="px-3 py-2 text-gray-900">
+            {r.sourceFiles?.join(", ") || "—"}
+          </td>
+          <td className="px-3 py-2 text-gray-900">
+            {r.rows?.length ?? 0}
+          </td>
+          <td className="px-3 py-2 flex gap-2">
+            <button
+              className="text-sm 
+  rounded-2xl 
+  px-3 py-1 
+  bg-gray-200/70
+  text-gray-800
+  shadow-md shadow-gray-600/20 
+  hover:bg-gray-200/90 
+  transition"
+              onClick={() => setSelected(r)}
+            >
+              Pregled
+            </button>
+            <button
+              className="text-sm 
+  rounded-2xl 
+  px-3 py-1 
+  bg-red-100 
+  text-red-700
+  shadow-md shadow-red-600/20 
+  hover:bg-red-100/80 
+  transition"
+              onClick={() => onDeleteReport(r)}
+            >
+              Obriši izvještaj
+            </button>
+          </td>
+        </tr>
+      ))}
+      {reports.length === 0 && (
+        <tr>
+          <td
+            className="px-3 py-4 text-muted-foreground"
+            colSpan={4}
+          >
+            Još nema sačuvanih nalaza. Učitaj PDF u Analizi.
+          </td>
+        </tr>
+      )}
+    </tbody>
+  </table>
+</div>
+
 
           {/* Detalji odabranog izvještaja */}
           {selected && (
@@ -194,7 +234,14 @@ export default function Dashboard() {
                   Izvještaj: {selected.date}
                 </h2>
                 <button
-                  className="text-sm border rounded px-2 py-1 hover:bg-muted transition"
+                  className="text-sm 
+  rounded-2xl 
+  px-3 py-1 
+  bg-gray-200/70
+  text-gray-800
+  shadow-md shadow-gray-600/20 
+  hover:bg-gray-200/90 
+  transition"
                   onClick={() => setSelected(null)}
                 >
                   Zatvori
@@ -205,71 +252,81 @@ export default function Dashboard() {
                 Fajlovi: {selected.sourceFiles?.join(", ") || "—"}
               </div>
 
-              <div className="overflow-x-auto rounded-2xl rounded border bg-card">
-                <table className="min-w-full text-sm">
-                  <thead className="bg-muted/40">
-                    <tr>
-                      <th className="text-left px-3 py-2 font-semibold">
-                        Analit
-                      </th>
-                      <th className="text-left px-3 py-2 font-semibold">
-                        Vrijednost
-                      </th>
-                      <th className="text-left px-3 py-2 font-semibold">
-                        Jedinica
-                      </th>
-                      <th className="text-left px-3 py-2 font-semibold">
-                        Ref low
-                      </th>
-                      <th className="text-left px-3 py-2 font-semibold">
-                        Ref high
-                      </th>
-                      <th className="text-left px-3 py-2 font-semibold">
-                        Status
-                      </th>
-                      <th className="text-left px-3 py-2 font-semibold">
-                        Akcije
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {selected.rows?.map((row: LabRow, i: number) => (
-                      <tr key={i} className="border-t">
-                        <td className="px-3 py-2">{row.Analit}</td>
-                        <td className="px-3 py-2">{row.Vrijednost}</td>
-                        <td className="px-3 py-2">{row.Jedinica}</td>
-                        <td className="px-3 py-2">{row.Ref_low}</td>
-                        <td className="px-3 py-2">{row.Ref_high}</td>
-                        <td className="px-3 py-2">{row.Status}</td>
-                        <td className="px-3 py-2 flex gap-2">
-                          <button
-                            className="text-xs border rounded px-2 py-1 hover:bg-muted"
-                            onClick={() => onRowEdit(selected, i, row)}
-                          >
-                            Uredi
-                          </button>
-                          <button
-                            className="text-xs border rounded px-2 py-1 hover:bg-red-50 text-red-600 border-red-300"
-                            onClick={() => onRowDelete(selected, i)}
-                          >
-                            Obriši
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-                    {(!selected.rows || selected.rows.length === 0) && (
-                      <tr>
-                        <td
-                          className="px-3 py-4 text-muted-foreground"
-                          colSpan={7}
-                        >
-                          Nema unosa za prikaz.
-                        </td>
-                      </tr>
-                    )}
-                  </tbody>
-                </table>
-              </div>
+              <div
+  className="
+    overflow-x-auto 
+    rounded-3xl 
+    border border-gray-400/40 
+    bg-white/50 
+    backdrop-blur-xl 
+    shadow-md
+  "
+>
+  <table className="min-w-full text-sm">
+    <thead className="bg-white/40 backdrop-blur-md">
+      <tr>
+        <th className="text-left px-3 py-2 font-semibold">Analit</th>
+        <th className="text-left px-3 py-2 font-semibold">Vrijednost</th>
+        <th className="text-left px-3 py-2 font-semibold">Jedinica</th>
+        <th className="text-left px-3 py-2 font-semibold">Ref low</th>
+        <th className="text-left px-3 py-2 font-semibold">Ref high</th>
+        <th className="text-left px-3 py-2 font-semibold">Status</th>
+        <th className="text-left px-3 py-2 font-semibold">Akcije</th>
+      </tr>
+    </thead>
+    <tbody>
+      {selected.rows?.map((row: LabRow, i: number) => (
+        <tr key={i} className="border-t border-gray-300/40">
+          <td className="px-3 py-2 text-gray-900">{row.Analit}</td>
+          <td className="px-3 py-2 text-gray-900">{row.Vrijednost}</td>
+          <td className="px-3 py-2 text-gray-900">{row.Jedinica}</td>
+          <td className="px-3 py-2 text-gray-900">{row.Ref_low}</td>
+          <td className="px-3 py-2 text-gray-900">{row.Ref_high}</td>
+          <td className="px-3 py-2 text-gray-900">{row.Status}</td>
+          <td className="px-3 py-2 flex gap-2">
+            <button
+              className="text-sm 
+  rounded-2xl 
+  px-3 py-1 
+  bg-gray-200/70
+  text-gray-800
+  shadow-md shadow-gray-600/20 
+  hover:bg-gray-200/90 
+  transition"
+              onClick={() => onRowEdit(selected, i, row)}
+            >
+              Uredi
+            </button>
+            <button
+              className="text-sm 
+  rounded-2xl 
+  px-3 py-1 
+  bg-red-100 
+  text-red-700
+  shadow-md shadow-red-600/20 
+  hover:bg-red-100/80 
+  transition"
+              onClick={() => onRowDelete(selected, i)}
+            >
+              Obriši
+            </button>
+          </td>
+        </tr>
+      ))}
+      {(!selected.rows || selected.rows.length === 0) && (
+        <tr>
+          <td
+            className="px-3 py-4 text-muted-foreground"
+            colSpan={7}
+          >
+            Nema unosa za prikaz.
+          </td>
+        </tr>
+      )}
+    </tbody>
+  </table>
+</div>
+
             </div>
           )}
         </div>

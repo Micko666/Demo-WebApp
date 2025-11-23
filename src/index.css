@@ -111,5 +111,62 @@ All colors MUST be HSL.
     transform: translateY(0) scale(1);
   }
 }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.float-y {
+  animation: floatY 3s ease-in-out infinite;
+}
+@keyframes floatY {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float-soft {
+  animation: floatSoft 4s ease-in-out infinite;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.9s ease-out forwards;
+}
+
+/* GLASS NAV SHELL – kapsula u kojoj su tabovi */
+.glass-nav-shell {
+  background-color: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(18px) saturate(1.25);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5),
+    0 8px 20px rgba(15, 23, 42, 0.16);
+}
+
+/* Pojedinačni tab */
+.glass-nav-pill {
+  border-radius: 999px;
+  transition: all 0.18s ease-out;
+}
+
+/* Aktivni tab */
+.glass-nav-pill--active {
+  background: radial-gradient(circle at 30% 20%, #ffffff, #e5e7eb);
+  box-shadow:
+    0 8px 18px rgba(15, 23, 42, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
 
 
