@@ -205,7 +205,7 @@ export default function Dashboard() {
                 Fajlovi: {selected.sourceFiles?.join(", ") || "—"}
               </div>
 
-              <div className="overflow-x-auto rounded border bg-card">
+              <div className="overflow-x-auto rounded-2xl rounded border bg-card">
                 <table className="min-w-full text-sm">
                   <thead className="bg-muted/40">
                     <tr>

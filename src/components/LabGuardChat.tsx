@@ -82,7 +82,9 @@ const LabGuardChat: React.FC<LabGuardChatProps> = ({ reports, onClose }) => {
 
   return (
     // W-FULL -> širi se koliko i parent (max-w-6xl iz Dashboarda)
-    <div className="relative w-full rounded-3xl border bg-card px-6 py-8 chat-pop">
+    <div className="relative w-full rounded-3xl border px-6 py-8 chat-pop 
+    bg-gradient-to-b from-gray-50 via-white to-gray-50">
+
       {/* Glava avatara na sredini gore */}
       <button
         type="button"

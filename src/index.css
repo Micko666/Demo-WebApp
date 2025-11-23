@@ -83,7 +83,7 @@ All colors MUST be HSL.
 /* LabGuard – lepršavi avatar i pop-in chat */
 
 .floating-avatar {
-  animation: float 3s ease-in-out infinite;
+  animation: float 2s ease-in-out infinite;
   
 }
 
@@ -98,7 +98,7 @@ All colors MUST be HSL.
 }
 
 .chat-pop {
-  animation: chat-pop 0.25s ease-out;
+  animation: chat-pop 0.5s ease-out;
 }
 
 @keyframes chat-pop {

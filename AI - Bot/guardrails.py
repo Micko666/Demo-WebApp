@@ -66,11 +66,11 @@ UNSAFE: <kratko objašnjenje>
     return {"allowed": False, "reason": evaluation.replace("UNSAFE:", "").strip()}
 
 
-def guarded_response(question: str, answer: str) -> str:
-    """
-    Ako je odgovor siguran -> vraća se original.
-    Ako nije -> vraća se bezbjedna poruka.
-    """
+"""def guarded_response(question: str, answer: str) -> str:
+    
+   # Ako je odgovor siguran -> vraća se original.
+   # Ako nije -> vraća se bezbjedna poruka.
+    
     result = guard_answer(question, answer)
 
     if result["allowed"]:
@@ -81,3 +81,7 @@ def guarded_response(question: str, answer: str) -> str:
         "Molim te da se za tumačenje nalaza ili odluku o terapiji obratiš svom ljekaru.\n"
         f"Detalji: {result['reason']}"
     )
+"""
+def guarded_response(question: str, answer: str) -> str:
+    # DEV MOD – bez filtera
+    return answer

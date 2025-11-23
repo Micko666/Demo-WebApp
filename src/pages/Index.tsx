@@ -37,7 +37,7 @@ const Index = () => {
       navigate("/login");
     } else {
       // Prijavljen korisnik → pravo na stranicu za analizu PDF nalaza
-      navigate("/analyzer");
+      navigate("/analiza");
     }
   };
 
