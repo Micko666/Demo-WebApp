@@ -59,18 +59,16 @@ const Index = () => {
 
             {/* HERO ICON */}
             <div className="flex justify-center mb-10">
-  <img
-    src="/Defense.png"
-    alt="LabGuard"
-    className="
-      w-38 h-32
-      object-contain 
-      animate-float-soft
-      drop-shadow-[0_6px_20px_rgba(180,180,180,0.35)]
-
-
-    "
-  />
+<img
+  src="/Defense.png"
+  alt="LabGuard"
+  className="
+    w-48 h-40 /* Changed from w-38 h-32 to make it bigger */
+    object-contain
+    animate-float-soft
+    drop-shadow-[0_6px_20px_rgba(180,180,180,0.35)]
+  "
+/>
 </div>
 
 
@@ -107,8 +105,9 @@ const Index = () => {
               size="lg"
               onClick={handleStartAnalysis}
               className="
-                text-lg px-8 py-6 rounded-full 
-                shadow-lg hover:shadow-xl 
+                text-lg px-8 py-6 rounded-full
+                shadow-md shadow-black-600/20
+                hover:bg-blue-100/80 
                 transition-all duration-300 
                 hover:scale-105 
                 mt-10
