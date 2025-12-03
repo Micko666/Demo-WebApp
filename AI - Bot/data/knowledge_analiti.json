@@ -1,0 +1,272 @@
+[
+  {
+    "id": "analit_hemoglobin",
+    "type": "analit_info",
+    "name": "Hemoglobin (Hb)",
+    "synonyms": [
+      "hemoglobin",
+      "Hb",
+      "hemoglobin u krvi"
+    ],
+    "category": "Krvna slika – eritrociti",
+    "unit_general": "g/L",
+    "short_description": "Hemoglobin je protein u eritrocitima koji vezuje kiseonik i ključan je za snabdijevanje tkiva kiseonikom; koristi se pretežno u dijagnostici i praćenju anemija.",
+    "long_description": "Hemoglobin je proteinska molekula smještena u eritrocitima, sastavljena od globinskih lanaca\ni hem grupe sa atomom gvožđa koji reverzibilno vezuje kiseonik. Ovaj mehanizam omogućava\npreuzimanje kiseonika u plućima i njegovo oslobađanje u perifernim tkivima, kao i djelimičan\ntransport ugljen-dioksida nazad u pluća. Zbog centralne uloge u transportu gasova, koncentracija\nhemoglobina odražava sposobnost krvi da snabdijeva organizam kiseonikom.\n\nHemoglobin je dio kompletne krvne slike i posmatra se zajedno sa brojem eritrocita, hematokritom\ni eritrocitnim indeksima (MCV, MCH, MCHC). Snižene vrijednosti ukazuju na anemiju različitog\nuzroka (nedostatak gvožđa, vitamina B12 ili folata, hronične bolesti, hemoliza, akutni ili\nhronični gubici krvi). Povišene vrijednosti se sreću kod stanja povećane mase eritrocita,\npoput policitemije vera ili sekundarne policitemije uslovljene hroničnom hipoksijom, boravkom\nna velikim nadmorskim visinama ili pušenjem. Na rezultat utiču hidracioni status, trudnoća,\nakutni stres i pojedini lijekovi, pa se hemoglobin uvijek tumači u širem laboratorijskom i\nkliničkom kontekstu.",
+    "why_measured": "Hemoglobin se mjeri u sklopu kompletne krvne slike radi otkrivanja i praćenja anemije, policitemije, akutnih i hroničnih krvarenja, kao i u procjeni hroničnih bolesti.",
+    "clinical_significance": "Snižene vrijednosti hemoglobina ukazuju na anemiju i mogu biti uzrok umora, slabosti, kratkog daha i drugih simptoma hipoksije. Povišene vrijednosti mogu povećati viskoznost krvi i rizik od tromboze u određenim stanjima. I niski i visoki hemoglobin zahtijevaju dalju procjenu uzroka.",
+    "interpretation_principle": "Hemoglobin se tumači zajedno sa MCV, MCH, MCHC, brojem eritrocita i hematokritom, kao i sa kliničkom slikom pacijenta. Na osnovu tog skupa podataka razlikuju se tipovi anemije i procjenjuje prisustvo policitemije.",
+    "factors_affecting": "Dehidratacija može dovesti do prividno povišenih vrijednosti, dok hiperhidratacija može sniziti vrijednost. Akutni ili hronični gubitak krvi, trudnoća, visinska adaptacija, pušenje i određeni lijekovi (npr. neki citostatici) utiču na koncentraciju hemoglobina.",
+    "sample_requirements": "Uzorak pune krvi prikupljen u epruvetu sa EDTA kao antikoagulansom, analiziran na automatizovanom hematološkom analizatoru; po potrebi se dopunjava mikroskopskim pregledom razmaza krvi.",
+    "patient_preparation": "Nije potrebna posebna priprema; uobičajeno je dovoljno da pacijent kratko miruje prije uzimanja uzorka. Laboratoriji treba prijaviti aktuelne terapije i nedavni gubitak krvi.",
+    "notes_for_user": "Hemoglobin je centralni parametar za otkrivanje i praćenje anemije, ali sam rezultat ne daje uzrok. Konačno tumačenje i odluku o eventualnoj terapiji donosi ljekar na osnovu kompletne krvne slike i simptoma.",
+    "related_analytes": [
+      "analit_eritrociti",
+      "analit_gvozdje"
+    ],
+    "trend_focus": "Najvažnije je pratiti da li hemoglobin kroz više nalaza postepeno pada ili raste u odnosu na ranije vrijednosti i referentni opseg. Posebno je informativan kada se posmatra zajedno sa brojem eritrocita i parametrima metabolizma gvožđa."
+  },
+  {
+    "id": "analit_eritrociti",
+    "type": "analit_info",
+    "name": "Eritrociti (RBC)",
+    "synonyms": [
+      "eritrociti",
+      "RBC",
+      "crvena krvna zrnca",
+      "red blood cells"
+    ],
+    "category": "Krvna slika – eritrociti",
+    "unit_general": "×10^12/L",
+    "short_description": "Eritrociti su crvene krvne ćelije koje nose hemoglobin i obezbjeđuju transport kiseonika; njihov broj pomaže u procjeni anemija i policitemija.",
+    "long_description": "Eritrociti su najbrojnije ćelije u krvi i glavne su za transport kiseonika od pluća do tkiva\ni djelimičan transport ugljen-dioksida nazad u pluća. Nastaju u koštanoj srži u procesu\neritropoeze, a zreli eritrociti nemaju jedro i bikonveksnog su oblika, što im omogućava\nprolazak kroz uske kapilare. Životni vijek eritrocita je oko 120 dana, nakon čega se razgrađuju\npretežno u slezeni i jetri, a gvožđe iz hemoglobina se reciklira.\n\nBroj eritrocita dio je kompletne krvne slike i posmatra se u kombinaciji sa hemoglobinom,\nhematokritom i eritrocitnim indeksima. Smanjen broj (eritropenija) u pravilu prati anemije\nrazličitog porijekla – od nedostatka gvožđa i vitamina do hroničnih bolesti i hemolitičkih\nporemećaja. Povišen broj (eritrocitoza) može biti posljedica primarnih poremećaja koštane\nsrži ili adaptacije na hroničnu hipoksiju i boravak na velikoj nadmorskoj visini. Na rezultat\nutiču hidracioni status, akutni gubitak krvi, trudnoća i razni sistemski poremećaji.",
+    "why_measured": "Broj eritrocita se mjeri kao dio kompletne krvne slike radi procjene sumnje na anemiju ili policitemiju i praćenja različitih hematoloških i hroničnih oboljenja.",
+    "clinical_significance": "Smanjen broj eritrocita ukazuje na nedovoljnu sposobnost krvi da prenosi kiseonik i često je praćen simptomima poput umora, slabosti i nedostatka daha. Povišen broj može doprinositi povećanoj viskoznosti krvi i potencijalno povećanom riziku od tromboze u nekim stanjima.",
+    "interpretation_principle": "Broj eritrocita se tumači zajedno sa hemoglobinom, hematokritom i eritrocitnim indeksima. Morfologija eritrocita na razmazu krvi dodatno pomaže u razlikovanju različitih tipova anemija i drugih hematoloških poremećaja.",
+    "factors_affecting": "Hidratacioni status, akutni ili hronični gubitak krvi, visinska adaptacija, trudnoća, pušenje i terapija eritropoetinom mogu uticati na broj eritrocita.",
+    "sample_requirements": "Puna krv u EDTA epruveti, analizirana na hematološkom analizatoru; razmaz krvi može se praviti za mikroskopski pregled po potrebi.",
+    "patient_preparation": "Specifična priprema uglavnom nije potrebna, ali je važno obavijestiti laboratoriju o značajnim gubicima krvi, transfuzijama i aktuelnim terapijama.",
+    "notes_for_user": "Broj eritrocita daje osnovnu sliku o crvenoj lozi u krvi, ali se ne posmatra izolovano. Za pravilno tumačenje potrebni su i drugi parametri krvne slike i klinički pregled.",
+    "related_analytes": [
+      "analit_hemoglobin",
+      "analit_gvozdje"
+    ],
+    "trend_focus": "Kod eritrocita je bitno da li broj kroz nalaze postepeno opada ili raste, naročito ako istovremeno postoje promjene hemoglobina. Usporedni trend sa hemoglobinom i gvožđem daje jasniju sliku o crvenoj lozi."
+  },
+  {
+    "id": "analit_leukociti",
+    "type": "analit_info",
+    "name": "Leukociti (WBC)",
+    "synonyms": [
+      "leukociti",
+      "WBC",
+      "bijela krvna zrnca",
+      "white blood cells"
+    ],
+    "category": "Krvna slika – leukociti",
+    "unit_general": "×10^9/L",
+    "short_description": "Leukociti su bijele krvne ćelije zadužene za odbranu organizma od infekcija i drugih štetnih uticaja; njihov broj i raspodjela pomažu u otkrivanju infekcija, upala i hematoloških bolesti.",
+    "long_description": "Leukociti su heterogena grupa bijelih krvnih ćelija koje učestvuju u urođenom i stečenom\nimunom odgovoru. Osnovne populacije su neutrofili, limfociti, monociti, eozinofili i bazofili,\na svaka podgrupa ima specifičnu ulogu u prepoznavanju, napadu i uklanjanju patogena ili\noštećenih ćelija. Leukociti nastaju u koštanoj srži i limfnim organima i putem krvi dospijevaju\nu tkiva gdje obavljaju svoju zaštitnu funkciju.\n\nUkupan broj leukocita i njihova diferencijalna formula dio su kompletne krvne slike. Povišen\nbroj (leukocitoza) često se viđa kod akutnih i hroničnih infekcija, upalnih stanja, stresa,\nnekih malignih oboljenja i nakon uzimanja određenih lijekova. Snižene vrijednosti (leukopenija)\nmogu biti posljedica virusnih infekcija, djelovanja citostatika, imunoloških poremećaja ili\nbolesti koštane srži. Analiza podtipova leukocita (neutrofili, limfociti i dr.) daje dodatne\ninformacije o prirodi imunog odgovora.",
+    "why_measured": "Leukociti se mjere u sklopu kompletne krvne slike radi otkrivanja i praćenja infekcija, upalnih i autoimunih bolesti, hematoloških maligniteta i efekata različitih terapija.",
+    "clinical_significance": "Povišen broj leukocita može ukazivati na akutnu ili hroničnu infekciju, upalu, stresni odgovor ili hematološku bolest, dok snižen broj ukazuje na smanjenu sposobnost organizma da se brani od infekcija i zahtijeva detaljniju procjenu.",
+    "interpretation_principle": "Vrijednost ukupnih leukocita se tumači zajedno sa diferencijalnom formulom i kliničkim nalazom. Promjene u udjelu pojedinih podtipova leukocita često su informativnije od samog ukupnog broja.",
+    "factors_affecting": "Akutni fizički i psihički stres, infekcije, trudnoća, pušenje, intenzivna fizička aktivnost i lijekovi (npr. kortikosteroidi, citostatici) utiču na broj leukocita.",
+    "sample_requirements": "Puna krv u EDTA epruveti, analizirana na hematološkom analizatoru; po potrebi se radi razmaz krvi za mikroskopski pregled i ručnu diferencijalnu formulu.",
+    "patient_preparation": "Posebna priprema najčešće nije potrebna. Važno je obavijestiti laboratoriju o terapiji, nedavnim infekcijama i drugim relevantnim stanjima.",
+    "notes_for_user": "Promjena broja leukocita je indikator da se u organizmu dešava imunološki ili upalni proces, ali sama vrijednost ne govori tačno o uzroku. Dalju dijagnostiku i liječenje planira ljekar.",
+    "related_analytes": [
+      "analit_trombociti"
+    ],
+    "trend_focus": "Za leukocite je bitan obrazac kretanja – da li su vrijednosti stalno povišene, stalno snižene ili se vraćaju u normalu. Uz trend leukocita obično se posmatra i broj trombocita i klinička slika."
+  },
+  {
+    "id": "analit_trombociti",
+    "type": "analit_info",
+    "name": "Trombociti (PLT)",
+    "synonyms": [
+      "trombociti",
+      "PLT",
+      "plateleti",
+      "thrombocytes"
+    ],
+    "category": "Krvna slika – hemostaza",
+    "unit_general": "×10^9/L",
+    "short_description": "Trombociti su sitne strukture u krvi koje učestvuju u primarnoj hemostazi i formiranju trombocitnog čepa; njihov broj je važan za procjenu rizika od krvarenja ili tromboze.",
+    "long_description": "Trombociti su fragmenti citoplazme megakariocita iz koštane srži i nemaju jedro. Uprkos maloj\nveličini, igraju ključnu ulogu u hemostazi: nakon oštećenja krvnog suda, trombociti se adhezivno\nvezuju za oštećeni endotel, međusobno se agregiraju i oslobađaju supstance koje pojačavaju\nzgrušavanje i regrutuju dodatne ćelije. Na ovaj način formiraju inicijalni trombocitni čep koji\nprivremeno zaustavlja krvarenje, dok se dalje aktiviraju plazmatski faktori koagulacije.\n\nBroj trombocita dio je kompletne krvne slike i važan je za procjenu sklonosti ka krvarenju ili\ntrombozi. Trombocitopenija (snižen broj trombocita) može biti posljedica smanjenog stvaranja u\nkoštanoj srži, povećane potrošnje, imunološke destrukcije ili pojačane sekvestracije u slezeni.\nTrombocitoza (povišen broj) može nastati reaktivno, npr. nakon infekcija, operacija ili gubitka\nkrvi, ali i kao posljedica primarnih mijeloproliferativnih poremećaja. Artefakti, poput\nagregacije trombocita u epruveti, ponekad daju lažno snižene vrijednosti i zahtijevaju\nprovjeru na razmazu krvi.",
+    "why_measured": "Trombociti se mjere u sklopu kompletne krvne slike radi procjene rizika od krvarenja ili stvaranja trombova, te praćenja različitih hematoloških i sistemskih bolesti i efekata terapije.",
+    "clinical_significance": "Snižen broj trombocita može povećati rizik od spontanih krvarenja, modrica i produženog krvarenja nakon povreda, dok povišene vrijednosti mogu biti povezane sa povećanim rizikom od tromboze u određenim okolnostima. I jedno i drugo stanje zahtijeva kliničku procjenu.",
+    "interpretation_principle": "Broj trombocita se tumači zajedno sa kliničkim nalazom (prisustvo modrica, krvarenja), drugim parametrima krvne slike i po potrebi testovima koagulacije. U sumnjivim slučajevima vrši se mikroskopska provjera razmaza krvi.",
+    "factors_affecting": "Akutne infekcije i upale, nedavne operacije, hronične bolesti, trudnoća, lijekovi (npr. heparin, citostatici) i tehnički faktori pri uzimanju uzorka mogu uticati na broj trombocita.",
+    "sample_requirements": "Puna krv u EDTA epruveti za automatsko brojanje trombocita; po potrebi dodatni uzorci prema protokolu laboratorije.",
+    "patient_preparation": "Obično nije potrebna posebna priprema. Važno je da pacijent navede lijekove koji utiču na funkciju ili broj trombocita, poput antitrombocitne terapije.",
+    "notes_for_user": "Abnormalne vrijednosti trombocita ne znače uvijek da će doći do vidljivog krvarenja ili tromboze, ali ukazuju na potrebu za daljom procjenom kod ljekara.",
+    "related_analytes": [
+      "analit_leukociti"
+    ],
+    "trend_focus": "Kod trombocita je korisno pratiti da li su vrijednosti stabilne, postepeno padaju ili rastu kroz vrijeme. Nagli pad ili trajno niske vrijednosti uz promjene leukocita obično zahtijevaju dodatnu medicinsku procjenu."
+  },
+  {
+    "id": "analit_glukoza",
+    "type": "analit_info",
+    "name": "Glukoza",
+    "synonyms": [
+      "šećer u krvi",
+      "glukoza u plazmi",
+      "plazma glukoza"
+    ],
+    "category": "Metabolizam ugljenih hidrata",
+    "unit_general": "mmol/L",
+    "short_description": "Glukoza je glavni šećer u krvi i osnovni izvor energije za ćelije; služi za dijagnostiku i praćenje dijabetesa, hipoglikemije i drugih poremećaja metabolizma ugljenih hidrata.",
+    "long_description": "Glukoza je jednostavan šećer koji cirkuliše u krvi i predstavlja glavni izvor energije za većinu\nćelija, posebno za mozak. Nivoi glukoze strogo su regulisani djelovanjem hormona, prvenstveno\ninsulina i glukagona, kao i drugih hormona poput kortizola i adrenalina. Nakon obroka, glukoza\nse apsorbuje iz crijeva u krv, a insulin omogućava njen ulazak u ćelije i skladištenje u obliku\nglikogena u jetri i mišićima. Tokom perioda posta, glukoza se oslobađa iz glikogenskih rezervi\nili nastaje putem glukoneogeneze kako bi se održao stabilan nivo šećera u krvi.\n\nMjerenje koncentracije glukoze je osnovni test u dijagnostici dijabetesa melitusa, poremećaja\ntolerancije glukoze i hipoglikemijskih stanja. Rezultati se tumače u zavisnosti od toga da li je\nuzorak uzet natašte, slučajno ili tokom opterećenja glukozom (OGTT). Povišene vrijednosti (hiperglikemija)\nmogu biti posljedica dijabetesa, akutnog stresa, infekcija, endokrinih poremećaja ili terapije\nodređenim lijekovima. Snižene vrijednosti (hipoglikemija) mogu izazvati simptome poput znojenja,\ndrhtavice, lupanja srca, konfuzije i, u težim slučajevima, gubitka svijesti.",
+    "why_measured": "Glukoza se rutinski mjeri radi dijagnostike i praćenja dijabetesa, procjene hipoglikemija i kao dio opšteg biohemijskog profila kod različitih bolesti.",
+    "clinical_significance": "Dugotrajne povišene vrijednosti glukoze povećavaju rizik od oštećenja krvnih sudova, bubrega, živaca i vida. Ponavljane ili teške hipoglikemije mogu biti opasne po život. Svaka značajna odstupanja zahtijevaju procjenu ljekara.",
+    "interpretation_principle": "Za pravilno tumačenje važno je znati da li je uzorak uzet natašte ili ne, da li pacijent uzima terapiju za dijabetes i da li postoje akutne bolesti ili stresne situacije. Glukoza se često posmatra zajedno sa HbA1c i drugim parametrima metabolizma.",
+    "factors_affecting": "Vrijeme posljednjeg obroka, sastav ishrane, fizička aktivnost, akutni stres, infekcije, endokrini poremećaji i brojni lijekovi (npr. kortikosteroidi, diuretici, insulin, oralni antidijabetici) značajno utiču na nivo glukoze.",
+    "sample_requirements": "Venska krv u epruveti sa aditivom koji sprječava razgradnju glukoze (npr. fluorid); uzorak se analizira na biohemijskom analizatoru.",
+    "patient_preparation": "Za standardno mjerenje glukoze natašte obično je potrebno 8–12 sati bez hrane. Za OGTT i specijalizovane testove slijede se detaljna uputstva laboratorije ili ljekara.",
+    "notes_for_user": "Jedan rezultat glukoze ne postavlja sam po sebi dijagnozu dijabetesa ili hipoglikemije. Ljekar upravlja dijagnostikom na osnovu više nalaza i kliničke slike.",
+    "related_analytes": [
+      "analit_trigliceridi",
+      "analit_holesterol",
+      "analit_hdl",
+      "analit_ldl"
+    ],
+    "trend_focus": "Kod glukoze je važno da li se vrijednosti ponavljano nalaze povišene ili snižene, naročito u nalazima natašte. Korisno je pratiti uzorak kretanja zajedno sa lipidnim statusom i drugim parametrima metabolizma."
+  },
+  {
+    "id": "analit_holesterol",
+    "type": "analit_info",
+    "name": "Ukupni holesterol",
+    "synonyms": [
+      "holesterol",
+      "total cholesterol"
+    ],
+    "category": "Lipidni status",
+    "unit_general": "mmol/L",
+    "short_description": "Ukupni holesterol je zbir holesterola u svim lipoproteinima u plazmi i služi kao dio procjene kardiovaskularnog rizika.",
+    "long_description": "Holesterol je lipid rastvorljiv u mastima koji je sastavni dio ćelijskih membrana i prekurzor je\nza sintezu steroidnih hormona, vitamina D i žučnih kiselina. U krvi se prenosi vezan za lipoproteine\nrazličite gustine (npr. LDL, HDL). Ukupni holesterol predstavlja zbir holesterola prisutnog u svim\novim frakcijama, ali sam po sebi ne razlikuje njihovu pojedinačnu raspodjelu.\n\nMjerenje ukupnog holesterola dio je standardnog lipidnog profila i koristi se u procjeni rizika od\naterosklerotskih kardiovaskularnih bolesti. Povišene vrijednosti često su povezane sa povećanim\nrizikom od koronarne bolesti srca i moždanog udara, posebno kada su praćene povišenim LDL-om i\nsniženim HDL-om. Međutim, sam ukupni holesterol nije dovoljan za potpunu procjenu rizika i uvijek\nse tumači zajedno sa ostalim lipidnim parametrima i kliničkim faktorima rizika.",
+    "why_measured": "Ukupni holesterol se mjeri kao dio lipidnog profila radi procjene kardiovaskularnog rizika i praćenja efekata promjena životnog stila i terapije lijekovima za snižavanje lipida.",
+    "clinical_significance": "Povišen ukupni holesterol u kombinaciji sa nepovoljnim rasporedom HDL/LDL i drugim faktorima rizika povećava vjerovatnoću razvoja ateroskleroze i njenih komplikacija. Snižavanje holesterola, posebno LDL frakcije, dokazano smanjuje kardiovaskularne događaje kod rizičnih osoba.",
+    "interpretation_principle": "Ukupni holesterol se ne tumači izolovano. Važno je analizirati i vrijednosti HDL-a, LDL-a, triglicerida i druge faktore rizika kao što su starost, pol, krvni pritisak, pušenje i dijabetes.",
+    "factors_affecting": "Genetika, ishrana (posebno unos zasićenih i trans masti), tjelesna masa, fizička aktivnost, hormonski status, hronične bolesti (npr. hipotireoza, dijabetes) i različiti lijekovi utiču na nivo ukupnog holesterola.",
+    "sample_requirements": "Venska krv za biohemijsku analizu lipidnog profila. U mnogim slučajevima se radi u sklopu rutinskih sistematskih pregleda.",
+    "patient_preparation": "Tradicionalno se preporučuje vađenje krvi ujutru, često nakon perioda posta, mada se u novijim smjernicama za dio populacije dozvoljava i uzorak bez posta. Specifična uputstva daje ljekar ili laboratorija.",
+    "notes_for_user": "Povišen ukupni holesterol je samo jedna komponenta ukupnog kardiovaskularnog rizika. Odluku o potrebi terapije i ciljnim vrijednostima donosi ljekar na osnovu potpunog profila rizika.",
+    "related_analytes": [
+      "analit_hdl",
+      "analit_ldl",
+      "analit_trigliceridi",
+      "analit_glukoza"
+    ],
+    "trend_focus": "Korisno je pratiti da li se ukupni holesterol kroz više nalaza kreće stabilno, sporo raste ili se smanjuje, naročito ako se prate promjene HDL-a, LDL-a i triglicerida paralelno."
+  },
+  {
+    "id": "analit_hdl",
+    "type": "analit_info",
+    "name": "HDL holesterol",
+    "synonyms": [
+      "HDL",
+      "dobar holesterol",
+      "high-density lipoprotein cholesterol"
+    ],
+    "category": "Lipidni status",
+    "unit_general": "mmol/L",
+    "short_description": "HDL holesterol učestvuje u reverznom transportu holesterola iz tkiva u jetru i smatra se \"zaštitnim\" faktorom u odnosu na aterosklerozu.",
+    "long_description": "HDL (high-density lipoprotein) holesterol se često naziva „dobrim“ holesterolom jer učestvuje\nu reverznom transportu holesterola. HDL čestice preuzimaju višak holesterola iz perifernih\ntkiva i aterosklerotskih naslaga u krvnim sudovima i prenose ga nazad u jetru, gdje se holesterol\nmože preraditi i izlučiti putem žuči. Ovaj proces pomaže u održavanju ravnoteže holesterola i\nsmanjenju njegovog nakupljanja u zidovima arterija.\n\nNiske vrijednosti HDL holesterola povezane su sa povećanim kardiovaskularnim rizikom, naročito\nkada su prisutni i drugi faktori kao što su povišeni trigliceridi, gojaznost, pušenje i dijabetes.\nS druge strane, viši nivoi HDL-a generalno se smatraju povoljnim, iako i tada ukupan rizik zavisi\nod cjelokupnog lipidnog profila i drugih faktora.",
+    "why_measured": "HDL se mjeri kao dio lipidnog profila radi procjene kardiovaskularnog rizika i praćenja efekata promjena načina života i terapije.",
+    "clinical_significance": "Nizak HDL često se smatra dodatnim faktorom rizika za razvoj aterosklerotskih bolesti, posebno kod osoba sa drugim nepovoljnim faktorima. Povišen HDL se obično smatra zaštitnim, ali ne isključuje potpuno postojanje rizika.",
+    "interpretation_principle": "HDL holesterol se tumači zajedno sa ukupnim holesterolom, LDL-om i trigliceridima. Omjeri poput ukupni holesterol/HDL ili LDL/HDL dodatno pomažu u procjeni kardiovaskularnog rizika.",
+    "factors_affecting": "Genetski faktori, pol, fizička aktivnost, tjelesna masa, ishrana, pušenje, alkohol i određeni lijekovi utiču na nivo HDL holesterola.",
+    "sample_requirements": "Venska krv, obično u sklopu kompletnog lipidnog profila, analizirana na biohemijskom analizatoru.",
+    "patient_preparation": "Preporuke za pripremu najčešće su iste kao i za ukupni holesterol i trigliceride. Često se savjetuje standardizovani uslovi (npr. jutarnji termin).",
+    "notes_for_user": "Iako se HDL posmatra kao „dobar“ holesterol, važno je gledati ukupni lipidni status i ostale faktore rizika. Ljekar je taj koji procjenjuje šta konkretna vrijednost znači u vašem slučaju.",
+    "related_analytes": [
+      "analit_holesterol",
+      "analit_ldl",
+      "analit_trigliceridi",
+      "analit_glukoza"
+    ],
+    "trend_focus": "Za HDL je posebno važno da li dugoročno ostaje nizak ili se poboljšava. Trend se obično posmatra zajedno sa ukupnim holesterolom, LDL-om i trigliceridima, kao dio ukupne slike kardiovaskularnog rizika."
+  },
+  {
+    "id": "analit_ldl",
+    "type": "analit_info",
+    "name": "LDL holesterol",
+    "synonyms": [
+      "LDL",
+      "loš holesterol",
+      "low-density lipoprotein cholesterol"
+    ],
+    "category": "Lipidni status",
+    "unit_general": "mmol/L",
+    "short_description": "LDL holesterol prenosi holesterol iz jetre ka perifernim tkivima i u povišenim koncentracijama doprinosi razvoju ateroskleroze.",
+    "long_description": "LDL (low-density lipoprotein) holesterol često se naziva „lošim“ holesterolom jer je snažno\npovezan sa razvojem aterosklerotskih promjena u arterijama. LDL čestice transportuju holesterol\niz jetre ka perifernim tkivima. Kada je koncentracija LDL-a povišena, holesterol se lakše taloži\nu intimnom sloju krvnih sudova, gdje može inicirati ili ubrzati aterosklerotski proces.\n\nBrojne epidemiološke i intervencione studije pokazale su da je povišen LDL jedan od glavnih\nfaktora rizika za koronarnu bolest srca i druge kardiovaskularne događaje. Smanjenje LDL holesterola\npromjenom načina života i/ili lijekovima pokazalo se efikasnim u smanjenju tog rizika kod različitih\nkategorija pacijenata.",
+    "why_measured": "LDL holesterol se mjeri kao ključni parametar lipidnog profila za procjenu kardiovaskularnog rizika i praćenje terapije snižavanja lipida.",
+    "clinical_significance": "Povišen LDL je direktno povezan sa povećanim rizikom od koronarne bolesti srca, moždanog udara i drugih aterosklerotskih komplikacija. Smanjenje LDL-a je jedan od glavnih ciljeva u liječenju hiperlipidemija.",
+    "interpretation_principle": "Ciljne vrijednosti LDL-a zavise od ukupnog kardiovaskularnog rizika i prisustva postojećih bolesti. LDL se tumači u kontekstu ostalih lipida i kliničkih faktora, prema važećim smjernicama.",
+    "factors_affecting": "Genetika, ishrana bogata zasićenim i trans mastima, tjelesna masa, nivo fizičke aktivnosti, pušenje, bolesti štitaste žlijezde, dijabetes i brojni lijekovi utiču na koncentraciju LDL-a.",
+    "sample_requirements": "Venska krv za lipidni profil. U nekim slučajevima LDL se direktno mjeri, a u drugim se računa iz ukupnog holesterola, HDL-a i triglicerida.",
+    "patient_preparation": "Preporuke za pripremu slične su kao i za druge lipide: često jutarnji termin, ponekad uz post prema uputstvu laboratorije ili ljekara.",
+    "notes_for_user": "LDL je jedan od glavnih parametara koji ljekari prate kada odlučuju o promjeni načina života ili uvođenju terapije za snižavanje masnoća u krvi.",
+    "related_analytes": [
+      "analit_holesterol",
+      "analit_hdl",
+      "analit_trigliceridi",
+      "analit_glukoza"
+    ],
+    "trend_focus": "Kod LDL-a se najčešće prati da li vrijednosti dugoročno opadaju, rastu ili ostaju visoke u odnosu na ciljne vrijednosti. Posebno je važno gledati trend zajedno sa HDL-om, trigliceridima i faktorima rizika."
+  },
+  {
+    "id": "analit_trigliceridi",
+    "type": "analit_info",
+    "name": "Trigliceridi",
+    "synonyms": [
+      "trigliceridi",
+      "triglycerides"
+    ],
+    "category": "Lipidni status",
+    "unit_general": "mmol/L",
+    "short_description": "Trigliceridi su glavni oblik skladištenja masti u organizmu i dio su lipidnog profila, važni za procjenu kardiovaskularnog rizika i rizika od pankreatitisa pri veoma visokim vrijednostima.",
+    "long_description": "Trigliceridi su esteri glicerola i masnih kiselina i predstavljaju ključni oblik skladištenja\nenergije u masnom tkivu. Nakon obroka, trigliceridi uneseni hranom apsorbuju se u crijevima i\ntransportuju u krvotok u obliku hilomikrona. Jetra takođe sintetiše trigliceride, koje zatim\notpušta u cirkulaciju kao dio VLDL čestica. U perifernim tkivima enzimi razlažu trigliceride na\nmasne kiseline koje ćelije koriste za energiju ili ponovo skladište.\n\nMjerenje triglicerida dio je standardnog lipidnog profila. Umjereno povišene vrijednosti često\nprate stanja kao što su gojaznost, inzulinska rezistencija, metabolički sindrom i nekontrolisani\ndijabetes. Veoma visoke vrijednosti mogu značajno povećati rizik od akutnog pankreatitisa.\nZbog osjetljivosti na unos hrane i alkohola, važno je voditi računa o pripremi pacijenta za test.\"",
+    "why_measured": "Trigliceridi se mjere u sklopu lipidnog profila radi procjene kardiovaskularnog rizika i rizika od pankreatitisa kod osoba sa veoma povišenim vrijednostima.",
+    "clinical_significance": "Povišene vrijednosti triglicerida mogu biti dio metaboličkog sindroma i povezane su sa povećanim rizikom od kardiovaskularnih bolesti. Ekstremno visoke vrijednosti mogu dovesti do akutnog pankreatitisa i zahtijevaju hitnu medicinsku procjenu.",
+    "interpretation_principle": "Trigliceridi se ne tumače izolovano, već zajedno sa LDL-om, HDL-om i ukupnim holesterolom, kao i drugim faktorima rizika kao što su gojaznost, hipertenzija i dijabetes.",
+    "factors_affecting": "Obilni obroci, posebno bogati mastima i ugljenim hidratima, unos alkohola, tjelesna masa, nivo fizičke aktivnosti, kontrola dijabetesa i lijekovi (npr. kortikosteroidi, estrogeni) utiču na vrijednost triglicerida.",
+    "sample_requirements": "Venska krv, analizirana na biohemijskom analizatoru kao dio lipidnog profila.",
+    "patient_preparation": "Često se preporučuje 8–12 sati posta i izbjegavanje alkohola dan prije vađenja krvi, prema uputstvu laboratorije ili ljekara.",
+    "notes_for_user": "Povišeni trigliceridi su jedan od faktora rizika za bolesti krvnih sudova. Promjene ishrane, povećanje fizičke aktivnosti i, po potrebi, terapija lijekovima dogovaraju se sa ljekarom.",
+    "related_analytes": [
+      "analit_holesterol",
+      "analit_hdl",
+      "analit_ldl",
+      "analit_glukoza"
+    ],
+    "trend_focus": "Vrijednosti triglicerida često osciluju, pa je korisno gledati obrazac više nalaza – da li su trajno povišene ili se normalizuju uz promjene životnog stila. Trend ima smisla tumačiti zajedno sa ostalim lipidima i glukozom."
+  },
+  {
+    "id": "analit_gvozdje",
+    "type": "analit_info",
+    "name": "Gvožđe (Fe) u serumu",
+    "synonyms": [
+      "gvožđe",
+      "serumsko gvožđe",
+      "iron",
+      "serum iron"
+    ],
+    "category": "Metabolizam gvožđa",
+    "unit_general": "µmol/L",
+    "short_description": "Serumsko gvožđe mjeri količinu gvožđa vezanog za transferrin u krvi i pomaže u procjeni stanja kao što su nedostatak gvožđa, preopterećenje gvožđem i hronične bolesti.",
+    "long_description": "Gvožđe je esencijalni element koji ulazi u sastav hemoglobina, mioglobina i brojnih enzima uključenih\nu transport elektrona i oksidativne procese. U organizmu se većina gvožđa nalazi u hemoglobinu\neritrocita, manji dio u depoima (ferritin, hemosiderin), a relativno mala količina cirkuliše u\nserumu vezana za transferrin. Ravnoteža između unosa, skladištenja, iskorišćenja i gubitka gvožđa\nključna je za održavanje normalnog hematološkog statusa.\n\nSerumsko gvožđe odražava trenutnu količinu gvožđa koja je prisutna u cirkulaciji i dostupna za\neritropoezu i druge funkcije. Vrijednost značajno varira tokom dana i pod uticajem ishrane,\nupale i terapije, pa se sam rezultat nikada ne tumači izolovano, već zajedno sa ferritinom,\nukupnim kapacitetom vezivanja gvožđa (TIBC), zasićenjem transferrina i parametrima krvne slike.\nSniženo serumsko gvožđe često se viđa kod nedostatka gvožđa, hroničnih upalnih stanja i nekih\nhroničnih bolesti, dok povišene vrijednosti mogu ukazivati na preopterećenje gvožđem (npr.\nhemohromatoza, višestruke transfuzije) ili akutno trovanje gvožđem.",
+    "why_measured": "Serumsko gvožđe se mjeri pri sumnji na nedostatak gvožđa, sideropenijsku anemiju, poremećaje skladištenja gvožđa i u procjeni hroničnih bolesti. Često je dio šireg panela metabolizma gvožđa.",
+    "clinical_significance": "Snižene vrijednosti mogu ukazivati na nedostatak gvožđa ili hronične upalne procese, dok povišene vrijednosti mogu pratiti stanja preopterećenja gvožđem ili akutnog trovanja. Tumačenje uvijek uključuje druge parametre metabolizma gvožđa i krvne slike.",
+    "interpretation_principle": "Serumsko gvožđe se ne tumači samostalno. Neophodno je uzeti u obzir ferritin, TIBC/transferin, saturaciju transferrina i nalaze kompletne krvne slike, kao i kliničke informacije.",
+    "factors_affecting": "Dnevne varijacije, ishrana, suplementacija gvožđem, menstrualno krvarenje, hronične bolesti i akutne upale značajno utiču na vrijednost serumskog gvožđa.",
+    "sample_requirements": "Venska krv u odgovarajućoj epruveti za serumske biohemijske analize; uzorak treba analizirati validiranom metodom u laboratoriji.",
+    "patient_preparation": "Često se preporučuje vađenje krvi ujutru, po mogućnosti natašte, i izbjegavanje uzimanja preparata gvožđa neposredno prije analize, u skladu sa uputstvom ljekara.",
+    "notes_for_user": "Nizak ili visok rezultat serumskog gvožđa ne znači automatski da imate manjak ili višak gvožđa u cijelom organizmu. Ljekar procjenjuje kompletan nalaz i odlučuje da li je potrebna dodatna dijagnostika ili terapija.",
+    "related_analytes": [
+      "analit_hemoglobin",
+      "analit_eritrociti"
+    ],
+    "trend_focus": "Kod serumskog gvožđa je važno posmatrati širu sliku – da li se vrijednosti ponavljano nalaze snižene ili povišene, a ne samo jedan nalaz. Trend ima smisla gledati zajedno sa hemoglobinom, eritrocitima i, po potrebi, dodatnim markerima metabolizma gvožđa."
+  }
+]

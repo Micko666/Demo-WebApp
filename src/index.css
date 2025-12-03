@@ -1,0 +1,397 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+   All colors SHOULD be HSL (osim par spec. gel varijabli). */
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 215 25% 27%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    --primary: 210 65% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 145 50% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 30% 94%;
+    --muted-foreground: 215 15% 50%;
+
+    --accent: 180 45% 75%;
+    --accent-foreground: 215 25% 27%;
+
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 25% 88%;
+    --input: 210 25% 88%;
+    --ring: 210 65% 65%;
+
+    --radius: 1rem;
+
+    /* Custom medical-nutrition gradients */
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(210 65% 65% / 0.1),
+      hsl(145 50% 65% / 0.1)
+    );
+    --gradient-card: linear-gradient(
+      180deg,
+      hsl(0 0% 100%),
+      hsl(210 40% 99%)
+    );
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(210 40% 70% / 0.15);
+    --shadow-card: 0 2px 12px hsl(210 40% 70% / 0.1);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Liquid glass nav varijable */
+    --c-glass: #bbbbbc;
+    --c-light: #ffffff;
+    --c-dark: #000000;
+    --glass-reflex-light: 1;
+    --glass-reflex-dark: 1;
+    --nav-saturation: 150%;
+  }
+
+  .dark {
+    --background: 215 30% 15%;
+    --foreground: 210 40% 98%;
+
+    --card: 215 25% 18%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 25% 18%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 65% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 145 50% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 20% 22%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 180 45% 65%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 25%;
+    --input: 215 20% 25%;
+    --ring: 210 65% 60%;
+
+    /* malo tamniji gel efekat u dark modu (po potrebi) */
+    --glass-reflex-light: 0.8;
+    --glass-reflex-dark: 1.4;
+    --nav-saturation: 160%;
+  }
+}
+
+/* LabGuard – lepršavi avatar i pop-in chat */
+
+.floating-avatar {
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.chat-pop {
+  animation: chat-pop 0.5s ease-out;
+}
+
+@keyframes chat-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.float-y {
+  animation: floatY 3s ease-in-out infinite;
+}
+
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes floatSoft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-soft {
+  animation: floatSoft 1s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.9s ease-out forwards;
+}
+
+/* ============================================
+   Liquid glass NAV – gel kartice na vrhu
+   ============================================ */
+
+.glass-nav-shell {
+  --nav-pill-width: 112px;
+  --nav-pill-gap: 4px;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px;
+  gap: var(--nav-pill-gap);
+
+  /* GEL LOOK */
+  background-color: color-mix(in srgb, var(--c-glass) 12%, transparent);
+  backdrop-filter: blur(8px) url(#switcher) saturate(var(--nav-saturation));
+  -webkit-backdrop-filter: blur(8px) saturate(var(--nav-saturation));
+
+  border-radius: 999px;
+  border: none;
+
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
+    inset 1.8px 3px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent),
+    inset -2px -2px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 80%), transparent),
+    inset -3px -8px 1px -6px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent),
+    inset -0.3px -1px 4px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 12%), transparent),
+    inset -1.5px 2.5px 0px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent),
+    inset 0px 3px 4px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent),
+    inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
+    0px 1px 5px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
+    0px 6px 16px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
+
+  transition:
+    background-color 400ms cubic-bezier(1, 0, 0.4, 1),
+    box-shadow 400ms cubic-bezier(1, 0, 0.4, 1);
+}
+
+.glass-nav-option {
+  position: relative;
+  width: var(--nav-pill-width);
+  height: 36px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.glass-nav-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
+.glass-nav-text {
+  position: relative;
+  z-index: 1;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #64748b;
+  transition:
+    color 160ms ease-out,
+    transform 160ms ease-out;
+}
+
+/* hover feedback */
+.glass-nav-option:hover .glass-nav-text {
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+
+/* aktivni tab – tekst tamniji i mrvicu podignut */
+.glass-nav-option:has(.glass-nav-input:checked) .glass-nav-text {
+  color: #020617;
+  transform: translateY(-0.5px);
+}
+
+/* Staklena pilula koja klizi ispod */
+.glass-nav-shell::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: var(--nav-pill-width);
+  height: 36px;
+  border-radius: 999px;
+  background-color: color-mix(in srgb, var(--c-glass) 36%, transparent);
+
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 10%), transparent),
+    inset 2px 1px 0px -1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent),
+    inset -1.5px -1px 0px -1px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 80%), transparent),
+    inset -2px -6px 1px -5px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 60%), transparent),
+    inset -1px 2px 3px -1px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 20%), transparent),
+    inset 0px -4px 1px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 10%), transparent),
+    0px 3px 6px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 8%), transparent);
+
+  transform: translateX(0);
+  z-index: 0;
+
+  transition:
+    background-color 400ms cubic-bezier(1, 0, 0.4, 1),
+    box-shadow 400ms cubic-bezier(1, 0, 0.4, 1),
+    transform 400ms cubic-bezier(1, 0, 0.4, 1);
+}
+
+/* gumena animacija kad se promijeni selekcija */
+.glass-nav-shell:has(.glass-nav-option .glass-nav-input:checked)::after {
+  animation: navScaleToggle 440ms ease;
+}
+
+/* položaji pilule – po indexu opcije (do 5 linkova) */
+.glass-nav-shell:has(.glass-nav-option:nth-child(1) .glass-nav-input:checked)::after {
+  transform: translateX(calc(0 * (var(--nav-pill-width) + var(--nav-pill-gap))));
+}
+.glass-nav-shell:has(.glass-nav-option:nth-child(2) .glass-nav-input:checked)::after {
+  transform: translateX(calc(1 * (var(--nav-pill-width) + var(--nav-pill-gap))));
+}
+.glass-nav-shell:has(.glass-nav-option:nth-child(3) .glass-nav-input:checked)::after {
+  transform: translateX(calc(2 * (var(--nav-pill-width) + var(--nav-pill-gap))));
+}
+.glass-nav-shell:has(.glass-nav-option:nth-child(4) .glass-nav-input:checked)::after {
+  transform: translateX(calc(3 * (var(--nav-pill-width) + var(--nav-pill-gap))));
+}
+.glass-nav-shell:has(.glass-nav-option:nth-child(5) .glass-nav-input:checked)::after {
+  transform: translateX(calc(4 * (var(--nav-pill-width) + var(--nav-pill-gap))));
+}
+
+/* male “gumene” scale animacije */
+@keyframes navScaleToggle {
+  0%   { scale: 1 1; }
+  50%  { scale: 1.1 1; }
+  100% { scale: 1 1; }
+}
+/* Canvas za parallax slova na landing stranici */
+.letters-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+/* White cloud behind hero text */
+.hero-cloud {
+  position: relative;
+  z-index: 30; /* iznad canvasa */
+}
+
+.hero-cloud::before {
+  content: "";
+  position: absolute;
+  inset: -20px -35px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.65) 40%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 100%
+  );
+  filter: blur(20px);
+  border-radius: 40px;
+  z-index: -1;
+  pointer-events: none;
+}
+/* Liquid glass kartice */
+.glass-card {
+  position: relative;
+  background: hsla(var(--glass-bg));
+  border-radius: 24px;
+  border: 1px solid hsla(var(--glass-border));
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow:
+    0 8px 25px hsla(220 40% 50% / 0.12),
+    0 4px 12px hsla(220 40% 40% / 0.08);
+}
+
+/* Blaga svijetla refleksija gore */
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.65) 0%,
+    rgba(255, 255, 255, 0.15) 40%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: screen;
+}
+
+/* Subtle internal soft shadow (dodaje dubinu staklu) */
+.glass-card::after {
+  content: "";
+  position: absolute;
+  inset: 10% 6%;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at bottom,
+    rgba(0, 0, 0, 0.05),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
